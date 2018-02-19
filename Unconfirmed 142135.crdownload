@@ -1,0 +1,54 @@
+var baseUrl="http://hitstapeadmin.com/";
+var API_KEY="AIzaSyAgBvZzPvNGwAT6qZMp-Lo-4NA4nQbOkn0";	
+var AUTH_DOMAIN="hitstape-d07e8.firebaseapp.com";	
+var DATABASE_URL="https://hitstape-d07e8.firebaseio.com/";	
+var PROJECT_ID="hitstape-d07e8";	
+var MESSAGE_SENDER_ID="56473619947";	
+var STORAGE_BUCKET="gs://hitstape-d07e8.appspot.com";
+var TITLE="title";
+var YOUTUBE="youtubeUrl";
+var TEXT="text";
+var TIMESTAMP="timestamp";
+var IMAGEURL="imageUrl";
+var NEWS_UPLOAD_API="discover/news";
+var NEWS_UPLOAD_STORAGE="newsimages";
+
+var config = {
+	apiKey: API_KEY,
+	authDomain: AUTH_DOMAIN,
+	databaseURL: DATABASE_URL,
+	projectId: PROJECT_ID,
+	messagingSenderId: MESSAGE_SENDER_ID,
+	storageBucket: STORAGE_BUCKET
+};
+
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            
+				return c.substring(name.length, c.length);
+		   
+        }
+    }
+}
+
+function logout(){
+	document.cookie = "username=expire";
+	var cokie=getCookie('username');
+	window.location.href="./login.php";
+	return false;
+}
+
+function setEmail(){
+document.getElementById('emailid').innerHTML="Hello"+getCookie('email');
+
+}
+	
